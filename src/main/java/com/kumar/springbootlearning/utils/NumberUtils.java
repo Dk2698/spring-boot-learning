@@ -8,9 +8,9 @@ import java.text.DecimalFormat;
 public final class NumberUtils {
 
     private static final DecimalFormat df = new DecimalFormat("#.##");
-    private static String[] UNITS = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
-    private static String[] TEENS = {"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
-    private static String[] TENS = {"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
+    private static final String[] UNITS = {"", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"};
+    private static final String[] TEENS = {"ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"};
+    private static final String[] TENS = {"", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"};
 
 
     private NumberUtils() {
@@ -21,9 +21,9 @@ public final class NumberUtils {
         if (number == 0) {
             return "zero";
         }
-
-        long intPart = (long) number;
-        int decPart = (int) ((number - intPart) * 100);
+        double roundedValue = round(number);
+        long intPart = (long) roundedValue;
+        int decPart = (int) round(((roundedValue - intPart) * 100));
 
         String intWords = convertToWords(intPart);
         String decWords = "";
