@@ -2,6 +2,10 @@ package com.kumar.springbootlearning.singleton.context;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+
 @Component
 public class TenantContext {
     private final ThreadLocal<String> tenantId = new ThreadLocal<>();
@@ -38,5 +42,27 @@ public class TenantContext {
         tenantId.remove();
         deploymentPodId.remove();
         applicationId.remove();
+    }
+
+    public Map<String, String> getCopyOfContextMap() {
+        Map<String, String> map = new HashMap<>();
+
+        if (tenantId.get() != null) {
+            map.put("tenantId", tenantId.get());
+        }
+        if (deploymentPodId.get() != null) {
+            map.put("deploymentPodId", deploymentPodId.get());
+        }
+        if (applicationId.get() != null) {
+            map.put("applicationId", applicationId.get());
+        }
+
+        return Collections.unmodifiableMap(map);
+    }
+
+    public void setContextMap(Map<String, String> contextMap) {
+        this.tenantId.set(contextMap.get("tenantId"));
+        this.deploymentPodId.set(contextMap.get("deploymentPodId"));
+        this.applicationId.set(contextMap.get("applicationId"));
     }
 }
