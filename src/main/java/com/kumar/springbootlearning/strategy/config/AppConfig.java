@@ -9,7 +9,7 @@ import reactor.netty.http.client.HttpClient;
 @Configuration
 public class AppConfig {
 
-    @Bean
+    @Bean(name = "publicWebClient")
     public WebClient publicWebClient(WebClient.Builder builder) {
         HttpClient httpClient = HttpClient.create().followRedirect((req, res) -> req.redirectedFrom().length < 3);
         ReactorClientHttpConnector connector = new ReactorClientHttpConnector(httpClient);
