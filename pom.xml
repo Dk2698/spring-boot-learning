@@ -28,6 +28,8 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+<!--		<mapstruct.version>1.5.3.Final</mapstruct.version>-->
+<!--		<mapstruct.version>1.6.0.Beta1</mapstruct.version>-->
 	</properties>
 	<dependencies>
 		<dependency>
@@ -102,18 +104,55 @@
 			<groupId>org.springframework.data</groupId>
 			<artifactId>spring-data-commons</artifactId>
 		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>org.mapstruct</groupId>-->
+<!--			<artifactId>mapstruct</artifactId>-->
+<!--			<version>${mapstruct.version}</version>-->
+<!--		</dependency>-->
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct</artifactId>
+			<version>1.6.0.Beta1</version>
+		</dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<annotationProcessorPaths>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+							<version>1.18.30</version> <!-- or latest -->
+						</path>
+						<path>
+							<groupId>org.mapstruct</groupId>
+							<artifactId>mapstruct-processor</artifactId>
+<!--							<version>${mapstruct.version}</version>-->
+							<version>1.6.0.Beta1</version>
+
+						</path>
+						<path>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok-mapstruct-binding</artifactId>
+<!--							<version>0.2.0</version>-->
+						</path>
+					</annotationProcessorPaths>
+				</configuration>
+			</plugin>
 <!--			<plugin>-->
 <!--				<groupId>org.apache.maven.plugins</groupId>-->
 <!--				<artifactId>maven-compiler-plugin</artifactId>-->
+<!--				<version>3.11.0</version>-->
 <!--				<configuration>-->
 <!--					<annotationProcessorPaths>-->
 <!--						<path>-->
-<!--							<groupId>org.projectlombok</groupId>-->
-<!--							<artifactId>lombok</artifactId>-->
+<!--							<groupId>org.mapstruct</groupId>-->
+<!--							<artifactId>mapstruct-processor</artifactId>-->
+<!--							<version>1.6.0.Beta1</version>-->
 <!--						</path>-->
 <!--					</annotationProcessorPaths>-->
 <!--				</configuration>-->
