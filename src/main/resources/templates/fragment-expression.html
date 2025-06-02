@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+    <h1> Fragment Expression</h1>
+    <div th:replace="~{common/header :: header}"></div>
+
+<div>
+    <h1> Page Body</h1>
+    <p th:text="${message}"> Hello Good Morning</p>
+</div>
+
+    <div th:replace="~{common/footer :: footer}"></div>
+</body>
+</html>

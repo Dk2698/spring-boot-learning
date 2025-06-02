@@ -45,7 +45,7 @@ public class WebConfigurer implements ServletContextInitializer, WebServerFactor
 
     private final Environment env;
 
-//    private final LogisitiexWebProperties webProperties;
+//    private final ComWebProperties webProperties;
     @Autowired
     private MultiTenantHandlerInterceptor multiTenantInterceptor;
 
