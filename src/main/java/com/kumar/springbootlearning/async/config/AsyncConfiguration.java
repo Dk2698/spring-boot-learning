@@ -1,6 +1,6 @@
 package com.kumar.springbootlearning.async.config;
 
-import com.kumar.springbootlearning.singleton.context.TenantContext;
+import com.kumar.springbootlearning.pattern.singleton.context.TenantContext;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;

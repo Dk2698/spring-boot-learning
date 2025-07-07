@@ -1,6 +1,6 @@
 package com.kumar.springbootlearning.async.config;
 
-import com.kumar.springbootlearning.singleton.context.TenantContext;
+import com.kumar.springbootlearning.pattern.singleton.context.TenantContext;
 
 import org.slf4j.MDC;
 import org.springframework.core.task.TaskDecorator;
